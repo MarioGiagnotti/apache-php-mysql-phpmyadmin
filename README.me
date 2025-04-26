@@ -1,0 +1,74 @@
+Questo progetto configura rapidamente un ambiente di sviluppo completo basato su Apache, PHP, MySQL e phpMyAdmin utilizzando Docker Compose.
+📦 Contenuto
+
+    Apache + PHP (immagine: php:8.2-apache)
+
+    MySQL (immagine: mysql:8.0)
+
+    phpMyAdmin (immagine: phpmyadmin)
+
+    Rete bridge privata creata automaticamente
+
+    Volume locale per sviluppo rapido del codice
+
+🛠 Struttura dei servizi
+Servizio	Porta locale	Descrizione
+Apache + PHP	8080	Server web PHP accessibile
+MySQL	3306	Database server
+phpMyAdmin	8081	Interfaccia DB web
+📂 Struttura del progetto
+
+/
+├── docker-compose.yml
+├── Dockerfile
+├── sorgenti/
+│   └── index.php
+│   └── connessione.php
+└── README.md
+
+    sorgenti/: contiene il codice PHP.
+
+    docker-compose.yml: definisce i servizi.
+
+    Dockerfile: estende Apache-php con mysqli.
+
+    README.md: guida al progetto.
+
+🚀 Come avviare il progetto
+
+    Clona il repository:
+
+git clone https://github.com/MarioGiagnotti/apache-php-mysql-phpmyadmin.git
+cd tuo-repository
+
+Fai il download delle immagini
+
+Avvia i container:
+
+    docker-compose --build -d
+
+    Accessi:
+
+        Front-end (PHP/Apache): http://localhost:8080
+
+        phpMyAdmin: http://localhost:8081
+
+            Hostname: db
+
+            Username: root
+
+            Password: root
+
+⚙️ Comandi utili
+
+    Fermare l'ambiente:
+
+docker-compose down
+
+Ricostruire i container:
+
+docker-compose up --build -d
+
+Visualizzare i log:
+
+docker-compose logs -f
